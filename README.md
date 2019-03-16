@@ -14,7 +14,11 @@ React js (Redux) demo app course  using boostrap 4 and json-server api
     2. json-server resources/data/db.json --port 3001
 </pre>
 
-<p>Open app <a href="http://127.0.0.1:3000">http://127.0.0.1:3000</a></p>
+## Open App & Api
 
-<p>Open Api product <a href="http://127.0.0.1:3001/products">http://127.0.0.1:3001/products</a> or</p>
-<p>Open Api order <a href="http://127.0.0.1:3001/orders">http://127.0.0.1:3001/orders</a></p>
+<pre>
+    Open app <a href="http://127.0.0.1:3000">http://127.0.0.1:3000</a>
+    Open Api product <a href="http://127.0.0.1:3001/products">http://127.0.0.1:3001/products</a>
+    Open Api order <a href="http://127.0.0.1:3001/orders">http://127.0.0.1:3001/orders</a>
+</pre>
+
