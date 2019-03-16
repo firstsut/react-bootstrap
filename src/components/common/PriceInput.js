@@ -4,11 +4,16 @@ import NumberFormat from 'react-number-format';
 class PriceInput extends Component{
 
     render(){
-        const { input: {  value,onChange,name },label,val,required } = this.props;       
+        const { input,label,required,meta : {error,touched}} = this.props;  
+        //console.log(meta)     
         return (
             <div className="form-group">
                 <label className="title">{label} {required && <span className="text-danger">*</span>}</label>
-                <NumberFormat name={name} thousandSeparator={true} displayType={'input'} className="form-control" value={val}/>                                                             
+                <NumberFormat {...input} name={input.name} thousandSeparator={true} displayType={'input'} className="form-control" value={input.value || "0"}/>                                                             
+                {
+                    error && touched &&
+                    <div className="mt-2 text-danger title"><strong>{error}</strong></div>
+                }
             </div>      
         )
     }
