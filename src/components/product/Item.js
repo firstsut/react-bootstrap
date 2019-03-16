@@ -14,7 +14,7 @@ class Item extends Component{
                     <img className="card-img-top" style={{width:'200px',height:'200px'}} src={img} />
                     </div>
                     
-                    <div class="card-body">
+                    <div className="card-body">
                         <h4 className="card-title"><strong>{name}</strong></h4>
                         <NumberFormat thousandSeparator={true} displayType={'text'} value={price} renderText={value => <p className="card-text text-right">{value} THB</p>}  />                      
                         <hr/>

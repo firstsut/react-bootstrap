@@ -1,30 +1,22 @@
 import React,{Component} from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Axios from 'axios';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import NumberFormat from 'react-number-format';
+import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {productFetch,productDelete} from '../../actions';
 
 class Product extends Component{
 
     constructor(props){
-        super(props);
-        this.state = {
-            products : []
-        }
+        super(props);       
         this.delProduct = this.delProduct.bind(this);
-    }
-
-    getList(){
-        Axios.get('http://localhost:3001/products').then(res=>{
-            this.setState({
-                products:res.data
-            });
-        })
+        this.editProduct = this.editProduct.bind(this);
     }
 
     componentDidMount(){
-      this.getList();
+      this.props.productFetch();
     }
 
 
@@ -52,8 +44,12 @@ class Product extends Component{
         return <tr><td className="text-center" colSpan="5">ไม่มีรายการ</td></tr>
     }
 
-    editProduct(){
-        
+    editProduct(product){
+        this.props.history.push('/products/edit/'+product.id);
+    }
+
+    addProduct(){
+        this.props.history.push('/products/add');
     }
 
     delProduct(product){
@@ -64,9 +60,7 @@ class Product extends Component{
               {
                 label: 'Yes',
                 onClick: () => {
-                    Axios.delete('http://localhost:3001/products/'+product.id).then(res=>{
-                        this.getList();
-                    });
+                    this.props.productDelete(product.id);
                 }
               },
               {
@@ -82,7 +76,8 @@ class Product extends Component{
             <div>
                <Header/>
                 <div className="container-fluid">
-                    <h3 className="page-header">รายการสินค้า</h3>
+                    <h3 className="page-header">รายการสินค้า <button type="button" className="btn btn-sm btn-primary" onClick={()=>this.addProduct()}>เพิ่ม</button></h3>
+                    
                     <div className="panel panel-default">
                         <div className="panel-body">
                              <div className="table-responsive">
@@ -104,7 +99,7 @@ class Product extends Component{
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.showData(this.state.products)}
+                                {this.showData(this.props.products)}
                             </tbody>
                             </table>
                         </div>
@@ -118,4 +113,8 @@ class Product extends Component{
     }
 }
 
-export default Product;
+function mapStateToProps({products}){
+    return {products};
+}
+
+export default withRouter(connect(mapStateToProps,{productFetch,productDelete})(Product));

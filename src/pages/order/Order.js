@@ -1,29 +1,19 @@
 import React,{Component} from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Axios from 'axios';
+import {connect} from 'react-redux';
+import {orderFetch,orderDelete} from '../../actions'
 import OrderList from '../../components/order/OrderList';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 class Order extends Component{
 
     constructor(props){
-        super(props);
-        this.state = {
-            orders : []
-        }
+        super(props);       
         this.delOrder = this.delOrder.bind(this);
     }
 
-    getList(){
-        Axios.get('http://localhost:3001/orders').then(res=>{
-            this.setState({
-                orders:res.data
-            });
-        })
-    }
-
     componentDidMount(){
-      this.getList();
+      this.props.orderFetch();
     }
 
     delOrder(order){
@@ -34,9 +24,7 @@ class Order extends Component{
               {
                 label: 'Yes',
                 onClick: () => {
-                    Axios.delete('http://localhost:3001/orders/'+order.id).then(res=>{
-                        this.getList();
-                    });
+                   this.props.orderDelete(order.id);
                 }
               },
               {
@@ -55,7 +43,7 @@ class Order extends Component{
                     <h3 className="page-header">รายการสั่งซื้อ</h3>
                     <div className="panel panel-default">
                         <div className="panel-body">
-                            <OrderList onDelOrder={this.delOrder} orders={this.state.orders} />
+                            <OrderList onDelOrder={this.delOrder} orders={this.props.orders} />
                         </div>
                     </div>
                 </div>
@@ -66,4 +54,8 @@ class Order extends Component{
     }
 }
 
-export default Order;
+function mapStateToProps({orders}){
+    return {orders};
+}
+
+export default connect(mapStateToProps,{orderDelete,orderFetch})(Order);
