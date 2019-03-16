@@ -16,5 +16,5 @@ React js demo app course  using boostrap 4 and json-server api
 
 <p>Open app <a href="http://127.0.0.1:3000">http://127.0.0.1:3000</a></p>
 
-<p>Open Api product<a href="http://127.0.0.1:3100/products">http://127.0.0.1:3100/products</a> or</p>
-<p>Open Api order<a href="http://127.0.0.1:3100/orders">http://127.0.0.1:3100/orders</a></p>
+<p>Open Api product <a href="http://127.0.0.1:3100/products">http://127.0.0.1:3100/products</a> or</p>
+<p>Open Api order <a href="http://127.0.0.1:3100/orders">http://127.0.0.1:3100/orders</a></p>
