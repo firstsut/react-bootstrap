@@ -11,7 +11,7 @@ React js demo app course  using boostrap 4 and json-server api
 
 <pre>
     1. npm start
-    2. json-serv resources/data/db.json --port 3100
+    2. json-server resources/data/db.json --port 3100
 </pre>
 
 <p>Open app <a href="http://127.0.0.1:3000">http://127.0.0.1:3000</a></p>
