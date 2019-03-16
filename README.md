@@ -1,5 +1,5 @@
-## React JS + Bootstrap 4 
-React js demo app course  using boostrap 4 and json-server api 
+## React JS (Redux) + Bootstrap 4 
+React js (Redux) demo app course  using boostrap 4 and json-server api 
 
 ## Installation
 
