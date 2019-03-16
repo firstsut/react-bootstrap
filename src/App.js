@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Home from './pages/Home';
+import About from './pages/About';
+import Order from './pages/order/Order';
+import Product from './pages/product/Product';
+import NotFound from './pages/NotFound';
+
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
 
 class App extends Component {
+
+ renderRouter(){
+   return (
+     <Switch>
+       <Route exact path="/" component={Home} />
+       <Route exact path="/about" component={About} />
+       <Route exact path="/orders" component={Order} />
+       <Route exact path="/products" component={Product} />
+       <Route  component={NotFound} />       
+     </Switch>
+   )
+ }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <BrowserRouter>
+        {this.renderRouter()}
+      </BrowserRouter>
     );
   }
 }
