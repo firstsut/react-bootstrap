@@ -5,7 +5,7 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import NumberFormat from 'react-number-format';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {productFetch,productDelete} from '../../actions';
+import {productsFetch,productDelete} from '../../actions';
 
 class Product extends Component{
 
@@ -16,9 +16,8 @@ class Product extends Component{
     }
 
     componentDidMount(){
-      this.props.productFetch();
+      this.props.productsFetch();
     }
-
 
     showData(products){
         if(products && products.length >0 ){
@@ -71,13 +70,13 @@ class Product extends Component{
           });
     }
 
-    render(){
+    render(){      
         return (
             <div>
                <Header/>
                 <div className="container-fluid">
-                    <h3 className="page-header">รายการสินค้า <button type="button" className="btn btn-sm btn-primary" onClick={()=>this.addProduct()}>เพิ่ม</button></h3>
-                    
+                    <h3 className="page-header">รายการสินค้า <button type="button" className="btn btn-sm btn-primary" onClick={()=>this.addProduct()}>เพิ่ม</button></h3>                 
+                                              
                     <div className="panel panel-default">
                         <div className="panel-body">
                              <div className="table-responsive">
@@ -117,4 +116,4 @@ function mapStateToProps({products}){
     return {products};
 }
 
-export default withRouter(connect(mapStateToProps,{productFetch,productDelete})(Product));
+export default withRouter(connect(mapStateToProps,{productsFetch,productDelete})(Product));

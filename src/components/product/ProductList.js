@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
-import Item from './Item';
+import Item from './ProductItem';
 
-class List extends Component{
+class ProductList extends Component{
 
     showProducts(){
-        if(this.props.products){
+        if(this.props.products && Array.isArray(this.props.products)){
              return this.props.products.map(product=>(               
                     <Item  onAddOrder={this.props.onAddOrder} key={product.id} product={product}/>                               
              ))   
@@ -19,4 +19,4 @@ class List extends Component{
         )
     }
 }
-export default List;
+export default ProductList;

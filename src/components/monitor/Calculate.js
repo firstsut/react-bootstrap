@@ -7,7 +7,7 @@ class Calculate extends Component{
             return orders.map(order =>{
                 return (
                     <li key={order.product.id} className="text-success  mt-1"><strong>{order.product.name} x {order.quantity} =                     
-                    <NumberFormat thousandSeparator={true} displayType={'text'} value={order.product.price * order.quantity} renderText={value => value}  />
+                    <NumberFormat thousandSeparator={true} displayType={'text'} value={order.product.price * order.quantity} renderText={value => " "+value}  />
                     </strong>
                     <button className="ml-1 btn btn-sm btn-secondary" type="button" onClick={()=>this.props.onDelOrder(order.product)}>X</button>
                     </li>

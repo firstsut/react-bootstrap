@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import NumberFormat from 'react-number-format';
 
-class Item extends Component{
+class ProductItem extends Component{
     constructor(props){
         super(props);        
     }
@@ -25,4 +25,4 @@ class Item extends Component{
         )
     }
 }
-export default Item;
+export default ProductItem;

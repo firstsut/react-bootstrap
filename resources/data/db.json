@@ -2,8 +2,8 @@
   "products": [
     {
       "id": 1,
-      "name": "Product 1",
-      "price": 10000,
+      "name": "Product vvv",
+      "price": "10,003",
       "img": "/images/product/1.png"
     },
     {
@@ -29,6 +29,18 @@
       "name": "Product 5",
       "price": 10000,
       "img": "/images/product/5.png"
+    },
+    {
+      "name": "testggwp",
+      "price": "2,000",
+      "img": "/images/product/4.png",
+      "id": 6
+    },
+    {
+      "name": "testggwp",
+      "price": 100000,
+      "img": "/images/product/2.png",
+      "id": 7
     }
   ],
   "orders": [
@@ -56,6 +68,56 @@
         }
       ],
       "id": 1
+    },
+    {
+      "date": "2019-03-18T03:46:50.178Z",
+      "totalPrice": 30000,
+      "orders": [
+        {
+          "product": {
+            "id": 4,
+            "name": "Product 4",
+            "price": 10000,
+            "img": "/images/product/4.png"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 1,
+            "name": "Product 1",
+            "price": 10000,
+            "img": "/images/product/1.png"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 5,
+            "name": "Product 5",
+            "price": 10000,
+            "img": "/images/product/5.png"
+          },
+          "quantity": 1
+        }
+      ],
+      "id": 2
+    },
+    {
+      "date": "2019-03-18T09:30:21.225Z",
+      "totalPrice": 100000,
+      "orders": [
+        {
+          "product": {
+            "name": "testggwp",
+            "price": 100000,
+            "img": "/images/product/2.png",
+            "id": 7
+          },
+          "quantity": 1
+        }
+      ],
+      "id": 3
     }
   ]
 }

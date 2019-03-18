@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import Calculate from './Calculate';
-import ProductList from '../product/List';
+import ProductList from '../product/ProductList';
 import Axios from 'axios';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 
