@@ -3,7 +3,7 @@ import {PRODUCTS_FETCH,PRODUCT_CREATE,PRODUCT_UPDATE,PRODUCT_FETCH} from './type
 
 export const productsFetch = ()=>{
     return dispatch =>{
-        Axios.get('http://localhost:3001/products').then(res=>{
+        Axios.get(process.env.REACT_APP_API+'/products').then(res=>{
             dispatch({type : PRODUCTS_FETCH,payload : res.data});
         })
     }
@@ -12,8 +12,8 @@ export const productsFetch = ()=>{
 
 export const productDelete = (id)=>{
     return dispatch =>{
-        Axios.delete('http://localhost:3001/products/'+id).then(res=>{
-            Axios.get('http://localhost:3001/products').then(res=>{  
+        Axios.delete(process.env.REACT_APP_API+'/products/'+id).then(res=>{
+            Axios.get(process.env.REACT_APP_API+'/products').then(res=>{  
                 res.data.msg = 'ลบข้อมูลสำเร็จ';
                 dispatch({type : PRODUCTS_FETCH,payload : res.data});
             })      
@@ -23,7 +23,7 @@ export const productDelete = (id)=>{
 
 export const productFetch = (id)=>{
     return dispatch =>{
-        Axios.get('http://localhost:3001/products/'+id).then(res=>{
+        Axios.get(process.env.REACT_APP_API+'/products/'+id).then(res=>{
             dispatch({type: PRODUCT_FETCH,payload : res.data});
         })
     }
@@ -35,7 +35,7 @@ export const productCreate = (product)=>{
         const img = "/images/product/"+Math.floor(rand)+".png";
         product.img = img;
         product.price = parseFloat(product.price.split(',').join(''));
-        Axios.post('http://localhost:3001/products',product).then(res=>{
+        Axios.post(process.env.REACT_APP_API+'/products',product).then(res=>{
             res.data.msg = 'ลบข้อมูลสำเร็จ';
             dispatch({type:PRODUCT_CREATE,payload:res.data})
         }).catch(err=>{
@@ -47,7 +47,7 @@ export const productCreate = (product)=>{
 export const productUpdate = (id,product)=>{
     return dispatch =>{      
         product.price = parseFloat(product.price.split(',').join(''));
-        Axios.put('http://localhost:3001/products/'+id,product).then(res=>{
+        Axios.put(process.env.REACT_APP_API+'/products/'+id,product).then(res=>{
             res.data.msg = 'ลบข้อมูลสำเร็จ';
             dispatch({type:PRODUCT_UPDATE,payload:res.data});    
         }).catch(err=>{
