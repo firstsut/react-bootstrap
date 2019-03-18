@@ -27,7 +27,7 @@ class Product extends Component{
                     <tr key={product.id}>
                         
                         <td>{product.id}</td>
-                        <td><img  src={product.img} style={{width:"100px",height:"100px"}} className="img-thumbnail"/></td>
+                        <td><img  src={product.img} alt="..." style={{width:"100px",height:"100px"}} className="img-thumbnail" /></td>
                         <td>{product.name}</td>
             
                         <td><NumberFormat thousandSeparator={true} displayType={'text'} value={product.price} renderText={value => value }  /></td>                      

@@ -8,9 +8,7 @@ import {Link} from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 
 class ProductEdit extends Component{
-    constructor(props){
-        super(props);
-    }
+   
 
     componentDidMount(){
         if(this.props.match.params.id){

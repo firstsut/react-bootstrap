@@ -7,10 +7,6 @@ import {productsFetch,productDelete} from '../actions';
 
 class Home extends Component {
   
-  constructor(props){
-    super(props);
-  }
-  
   componentDidMount(){
     this.props.productsFetch();
   }

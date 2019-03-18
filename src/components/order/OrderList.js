@@ -2,10 +2,6 @@ import React,{Component} from 'react';
 import NumberFormat from 'react-number-format';
 class OrderList extends Component{
 
-    constructor(props){
-        super(props);        
-    }
-
     showData(orders){
         if(orders && orders.length >0 ){
             return orders.map(order =>{
