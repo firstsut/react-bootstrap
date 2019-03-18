@@ -6,7 +6,7 @@ class ProductItem extends Component{
     render(){
         const {name,price,img} = this.props.product;
         return (
-            <div className="col-md-3">
+            <div className="col-md-3 mt-2">
                 <div className="card"> 
                     <div className="text-center">
                     <img alt="..." className="card-img-top" style={{width:'200px',height:'200px'}} src={img} />

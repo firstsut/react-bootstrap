@@ -4,7 +4,8 @@ import ProductList from '../product/ProductList';
 import Axios from 'axios';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 
-class Monitor extends Component{
+
+class Monitor extends Component{    
 
     constructor(props){
         super(props);
@@ -20,6 +21,9 @@ class Monitor extends Component{
         this.confirmOrder = this.confirmOrder.bind(this);
     }
 
+ 
+    
+      
     addOrder(product){
         let findOrder = this.state.orders.find(order=> order.product.id === product.id);    
         if(findOrder){
@@ -120,7 +124,7 @@ class Monitor extends Component{
             }
                 
                 <div className="row">
-                    <div className="col-md-9">
+                    <div className="col-md-9">                                  
                         <ProductList  onAddOrder={this.addOrder} products={this.props.products}/>
                     </div>
                     <div className="col-md-3">

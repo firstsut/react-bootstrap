@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import {PRODUCTS_FETCH,PRODUCT_CREATE,PRODUCT_UPDATE,PRODUCT_FETCH} from './types';
 
-export const productsFetch = ()=>{
+export const  productsFetch =  ()=>{
     return dispatch =>{
         Axios.get(process.env.REACT_APP_API+'/products').then(res=>{
             dispatch({type : PRODUCTS_FETCH,payload : res.data});

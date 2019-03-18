@@ -7,13 +7,28 @@ import OrderList from '../../components/order/OrderList';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 class Order extends Component{
 
+    loader = false;
     constructor(props){
-        super(props);       
+        super(props);         
         this.delOrder = this.delOrder.bind(this);
     }
 
+    componentWillMount(){
+      this.loader = true;      
+     
+  }
+
     componentDidMount(){
-      this.props.orderFetch();
+      setTimeout(
+        function() {
+          this.props.orderFetch();
+        }
+        .bind(this),
+        600
+      ); 
+      this.loader = false;      
+     
+     
     }
 
     delOrder(order){
@@ -43,7 +58,7 @@ class Order extends Component{
                     <h3 className="page-header">รายการสั่งซื้อ</h3>
                     <div className="panel panel-default">
                         <div className="panel-body">
-                            <OrderList onDelOrder={this.delOrder} orders={this.props.orders} />
+                            <OrderList loader={this.loader} onDelOrder={this.delOrder} orders={this.props.orders} />
                         </div>
                     </div>
                 </div>

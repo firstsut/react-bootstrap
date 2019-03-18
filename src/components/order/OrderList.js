@@ -1,6 +1,34 @@
 import React,{Component} from 'react';
 import NumberFormat from 'react-number-format';
+import ContentLoader from 'react-content-loader';
+
 class OrderList extends Component{
+
+    contentPreload(length){
+        let result = []
+        for (let i = 0; i < length; i++) {
+          result.push(i);
+        }
+        return result.map(index=>{
+          return (
+            <div key={index}>
+                <ContentLoader                
+                height={30}
+                width={1060}
+                speed={2}
+                primaryColor="#f3f3f3"
+                secondaryColor="#ecebeb"                
+            >
+                <circle cx="10" cy="20" r="8" /> 
+                <rect x="40" y="15" rx="5" ry="5" width="200" height="10" /> 
+                <rect x="320" y="15" rx="5" ry="5" width="200.4" height="10" /> 
+                <rect x="560" y="15" rx="5" ry="5" width="200.2" height="10" /> 
+                <rect x="900" y="15" rx="5" ry="5" width="100" height="10" />                  
+            </ContentLoader>
+            </div>
+          )
+        })   
+    }
 
     showData(orders){
         if(orders && orders.length >0 ){
@@ -27,8 +55,9 @@ class OrderList extends Component{
                     </tr>
                 )
             })    
-        }
-        return <tr><td className="text-center" colSpan="5">ไม่มีรายการ</td></tr>
+        }else if(!this.props.loader){
+            return <tr><td className="text-center" colSpan="5">ไม่มีรายการ</td></tr>
+        }       
     }
 
     render(){
@@ -52,7 +81,18 @@ class OrderList extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        {this.showData(this.props.orders)}
+                        {
+                        this.props.loader &&
+                        <tr>
+                            <td colSpan="5">
+                                { this.contentPreload(10)}
+                            </td>
+                        </tr>
+                        }   
+                        {
+                            !this.props.loader &&
+                            this.showData(this.props.orders)
+                            }
                     </tbody>
                 </table>
             </div>
