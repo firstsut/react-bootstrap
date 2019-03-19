@@ -15,7 +15,7 @@ class OrderList extends Component{
                 <ContentLoader                
                 height={30}
                 width={1060}
-                speed={2}
+                speed={1}
                 primaryColor="#f3f3f3"
                 secondaryColor="#ecebeb"                
             >

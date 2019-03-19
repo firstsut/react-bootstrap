@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Product vvv",
-      "price": "10,003",
+      "price": 10000,
       "img": "/images/product/1.png"
     },
     {
@@ -29,18 +29,6 @@
       "name": "Product 5",
       "price": 10000,
       "img": "/images/product/5.png"
-    },
-    {
-      "name": "testggwp",
-      "price": "2,000",
-      "img": "/images/product/4.png",
-      "id": 6
-    },
-    {
-      "name": "testggwp",
-      "price": 100000,
-      "img": "/images/product/2.png",
-      "id": 7
     }
   ],
   "orders": [
