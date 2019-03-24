@@ -5,9 +5,6 @@ import ContentLoader from 'react-content-loader';
 class ProductList extends Component{
 
     loader = false;
-    constructor(props){
-        super(props);        
-    }
 
     componentWillMount(){
         this.loader = true;      
